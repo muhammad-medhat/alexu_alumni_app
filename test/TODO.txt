@@ -1,0 +1,43 @@
+rename table lk9v6_alumni_main
+alter table users to add the column approved to it
+execute query:
+update lk9v6_users u 
+inner join 1lk9v6_alumni_main m
+on u.id=m.user_id
+set u.approved=m.approved
+rename table lk9v6_alumni_main to 1lak9v6_alumni_main
+alter table
+
+ALTER TABLE `lk9v6_users` ADD `approved` TINYINT NOT NULL DEFAULT '0' AFTER `role`;
+
+update lk9v6_users u
+inner join lk9v6_alumni_main m on u.id=m.user_id
+set u.approved=m.approved;
+
+
+
+-- -----------------------------------
+insert into lk9v6_alumni_data_other(alumni_id,joB,address,city, country, phone,month,mobile)
+
+select `alumni_id`, `job` , `address`,  `city` , `country`, `phone` , `month`, `mobile` from lk9v6_alumni_data
+
+
+-- ---------------------------------
+ALTER TABLE `lk9v6_alumni_data`
+  DROP `location`,
+  DROP `job`,
+  DROP `address`,
+  DROP `city`,
+  DROP `country`,
+  DROP `month`,
+  DROP `with_honor`;
+
+bugs
+====
+done========validation isunique for username in registration
+done========validation matches for password in registration
+done========cannot edit username: edit_unique validation
+grap queries in a single transaction for alumni registration
+admin pagination??
+sorttable js in admin
+check all in admin table
